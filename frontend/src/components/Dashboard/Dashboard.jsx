@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/questions', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setQuestions(response.data);
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchUsername = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/questions/user', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/user', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsername(response.data.username);
@@ -59,7 +59,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const response = await axios.get(`http://localhost:5000/api/questions/search?query=${query}`, {
+      const response = await axios.get(`https://tracker-fnbb.onrender.com/api/questions/search?query=${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSearchResults(response.data);
@@ -74,7 +74,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const response = await axios.get('http://localhost:5000/api/questions/byDifficulty', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/byDifficulty', {
         headers: { Authorization: `Bearer ${token}` },
         params: { difficulty: difficultyFilter },
       });
@@ -90,7 +90,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const response = await axios.get('http://localhost:5000/api/questions/byRating', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/byRating', {
         headers: { Authorization: `Bearer ${token}` },
         params: { minRating: ratingFilter },
       });
@@ -106,7 +106,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const response = await axios.get('http://localhost:5000/api/questions/byTopic', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/byTopic', {
         headers: { Authorization: `Bearer ${token}` },
         params: { topics: topicFilter },
       });
@@ -122,7 +122,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const response = await axios.get('http://localhost:5000/api/questions/byTimeSpent', {
+      const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/byTimeSpent', {
         headers: { Authorization: `Bearer ${token}` },
         params: { maxTime: timeFilter.trim() },
       });

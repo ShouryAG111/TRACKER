@@ -14,7 +14,7 @@ function Tracker() {
   useEffect(() => {
     const fetchProgress = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/questions/progress', {
+        const response = await axios.get('https://tracker-fnbb.onrender.com/api/questions/progress', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProgressData(response.data);

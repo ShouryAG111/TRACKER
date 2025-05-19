@@ -8,7 +8,7 @@ function QuestionList({ questions, onQuestionUpdated }) {
   const handleRevisionToggle = async (questionId, currentStatus) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/questions/${questionId}`,
+        `https://tracker-fnbb.onrender.com/api/questions/${questionId}`,
         { needsRevision: !currentStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -21,7 +21,7 @@ function QuestionList({ questions, onQuestionUpdated }) {
 const handleNotesUpdate = async (questionId, notes) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/questions/${questionId}`,
+        `https://tracker-fnbb.onrender.com/api/questions/${questionId}`,
         { notes },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -33,7 +33,7 @@ const handleNotesUpdate = async (questionId, notes) => {
 
   const handleDeleteQuestion = async (questionId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/questions/${questionId}`, {
+      await axios.delete(`https://tracker-fnbb.onrender.com/api/questions/${questionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       onQuestionUpdated();

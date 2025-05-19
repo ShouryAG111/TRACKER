@@ -61,7 +61,7 @@ function QuestionForm({ onQuestionAdded }) {
         topics: formData.topics.map((topic) => topic.value)
       };
       
-      await axios.post('http://localhost:5000/api/questions', dataToSend, {
+      await axios.post('https://tracker-fnbb.onrender.com/api/questions', dataToSend, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
