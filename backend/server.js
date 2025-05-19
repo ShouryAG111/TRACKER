@@ -9,12 +9,13 @@ dotenv.config();
 
 const app = express();
 
-// Allow ALL CORS requests from ANY origin, no restrictions
+// Enable CORS for all origins and handle preflight OPTIONS requests globally
 app.use(cors());
+app.options('*', cors());
 
 app.use(express.json());
 
-// Connect to MongoDB with error handling
+// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => {
@@ -29,9 +30,9 @@ app.use('/api/questions', questionRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
+  res.status(500).json({
     message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 });
 
