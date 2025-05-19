@@ -9,11 +9,9 @@ dotenv.config();
 
 const app = express();
 
-// Configure CORS with specific options
-app.use(cors({
-  origin: 'http://localhost:5173', // Vite's default port
-  credentials: true
-}));
+// Allow ALL CORS requests from ANY origin, no restrictions
+app.use(cors());
+
 app.use(express.json());
 
 // Connect to MongoDB with error handling
@@ -24,6 +22,10 @@ mongoose.connect(process.env.MONGODB_URI)
     process.exit(1);
   });
 
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/questions', questionRoutes);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -32,10 +34,6 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
 });
-
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/questions', questionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
