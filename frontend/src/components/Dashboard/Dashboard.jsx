@@ -18,6 +18,7 @@ const Dashboard = () => {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
+
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/login');
