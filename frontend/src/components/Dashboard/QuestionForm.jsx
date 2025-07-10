@@ -81,39 +81,39 @@ function QuestionForm({ onQuestionAdded }) {
     }
   };
 
-  // Custom react-select styles to match dark theme
+ 
   const customSelectStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: '#2d3748', // Dark background for control
-      borderColor: '#4a5568', // Darker border
-      color: 'white', // White text
+      backgroundColor: '#2d3748',
+      borderColor: '#4a5568',
+      color: 'white', 
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: '#2d3748', // Dark background for dropdown menu
-      color: 'white', // White text
+      backgroundColor: '#2d3748', 
+      color: 'white',
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected ? '#4a5568' : '#2d3748', // Dark background for selected option
-      color: state.isSelected ? 'white' : '#e2e8f0', // White text when selected
+      backgroundColor: state.isSelected ? '#4a5568' : '#2d3748',
+      color: state.isSelected ? 'white' : '#e2e8f0', 
       cursor: 'pointer',
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: '#4a5568', // Dark background for selected values
-      color: 'white', // White text for selected values
+      backgroundColor: '#4a5568',
+      color: 'white', 
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: 'white', // White text for multi-value label
+      color: 'white', 
     }),
     multiValueRemove: (provided) => ({
       ...provided,
-      color: 'white', // White color for remove button
+      color: 'white', 
       ':hover': {
-        backgroundColor: '#e53e3e', // Red color when hovering over remove button
+        backgroundColor: '#e53e3e', 
       },
     }),
   };

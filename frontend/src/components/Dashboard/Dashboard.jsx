@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+
   const { token, isAuthenticated, logout } = useAuth();
   const [questions, setQuestions] = useState([]);
   const [searchResults, setSearchResults] = useState(null);
@@ -18,9 +19,8 @@ const Dashboard = () => {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated){
       navigate('/login');
     }
   }, [isAuthenticated, navigate]);
